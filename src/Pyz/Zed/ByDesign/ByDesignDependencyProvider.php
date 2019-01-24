@@ -13,6 +13,7 @@ use Spryker\Zed\Kernel\Container;
 class ByDesignDependencyProvider extends AbstractBundleDependencyProvider
 {
     public const FACADE_SALES = 'FACADE_SALES';
+    public const FACADE_OMS = 'FACADE_OMS';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -23,6 +24,9 @@ class ByDesignDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[self::FACADE_SALES] = function (Container $container) {
             return $container->getLocator()->sales()->facade();
+        };
+        $container[self::FACADE_OMS] = function (Container $container) {
+            return $container->getLocator()->oms()->facade();
         };
 
         return $container;
@@ -37,6 +41,9 @@ class ByDesignDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[self::FACADE_SALES] = function (Container $container) {
             return $container->getLocator()->sales()->facade();
+        };
+        $container[self::FACADE_OMS] = function (Container $container) {
+            return $container->getLocator()->oms()->facade();
         };
 
         return $container;

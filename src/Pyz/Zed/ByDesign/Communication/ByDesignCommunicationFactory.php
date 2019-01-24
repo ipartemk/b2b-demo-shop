@@ -9,6 +9,7 @@ namespace Pyz\Zed\ByDesign\Communication;
 
 use Pyz\Zed\ByDesign\ByDesignDependencyProvider;
 use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
+use Spryker\Zed\Oms\Business\OmsFacadeInterface;
 use Spryker\Zed\Sales\Business\SalesFacadeInterface;
 
 /**
@@ -24,5 +25,13 @@ class ByDesignCommunicationFactory extends AbstractCommunicationFactory
     public function getSalesFacade(): SalesFacadeInterface
     {
         return $this->getProvidedDependency(ByDesignDependencyProvider::FACADE_SALES);
+    }
+
+    /**
+     * @return \Spryker\Zed\Oms\Business\OmsFacadeInterface
+     */
+    public function getOmsFacade(): OmsFacadeInterface
+    {
+        return $this->getProvidedDependency(ByDesignDependencyProvider::FACADE_OMS);
     }
 }

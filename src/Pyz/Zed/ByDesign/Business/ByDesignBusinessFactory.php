@@ -17,8 +17,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use Spryker\Zed\Sales\Business\SalesFacadeInterface;
 
 /**
- * @method \Pyz\Zed\ByDesign\Persistence\ByDesignRepositoryInterface getRepository()
- * @method \Pyz\Zed\ByDesign\Persistence\ByDesignQueryContainerInterface getQueryContainer()
  * @method \Pyz\Zed\ByDesign\ByDesignConfig getConfig()
  */
 class ByDesignBusinessFactory extends AbstractBusinessFactory
@@ -60,10 +58,7 @@ class ByDesignBusinessFactory extends AbstractBusinessFactory
      */
     protected function createResponseConverter()
     {
-        return new ResponseConverter(
-//            $this->getCountryFacade(),
-//            $this->createProcessStatusValidator()
-        );
+        return new ResponseConverter();
     }
 
     /**
