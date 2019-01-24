@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<transfers xmlns="spryker:transfer-01"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
+    
+    <transfer name="ByDesignResponse">
+        <property name="IsError" type="bool" />
+        <property name="ErrorMessage" type="string" />
+        <property name="SalesOrderId" type="string" />
+        <property name="SalesOrderUuid" type="string" />
+    </transfer>
+
+    <transfer name="ByDesignLogResponse">
+        <property name="MaximumLogItemSeverityCode" type="string" />
+        <property name="ByDesignItems" type="ByDesignItemResponse[]" />
+    </transfer>
+
+    <transfer name="ByDesignItemResponse">
+        <property name="TypeID" type="string" />
+        <property name="SeverityCode" type="string" />
+        <property name="Note" type="string" />
+    </transfer>
+</transfers>

@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Oms;
 
+use Pyz\Zed\ByDesign\Communication\Plugin\Oms\Command\ExportOrderPlugin;
 use Spryker\Zed\Availability\Communication\Plugin\AvailabilityHandlerPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\SendOrderConfirmationPlugin;
@@ -29,6 +30,8 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
         $container->extend(self::COMMAND_PLUGINS, function (CommandCollectionInterface $commandCollection) {
             $commandCollection->add(new SendOrderConfirmationPlugin(), 'Oms/SendOrderConfirmation');
             $commandCollection->add(new SendOrderShippedPlugin(), 'Oms/SendOrderShipped');
+
+            $commandCollection->add(new ExportOrderPlugin(), 'ByDesign/ExportOrder');
 
             return $commandCollection;
         });

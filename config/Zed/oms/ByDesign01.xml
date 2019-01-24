@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<statemachine
+        xmlns="spryker:oms-01"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="spryker:oms-01 http://static.spryker.com/oms-01.xsd">
+
+    <process name="ByDesign01" main="true">
+        <states>
+            <state name="new" reserved="true"/>
+            <state name="payment pending" reserved="true"/>
+            <state name="paid" reserved="true"/>
+            <state name="shipped" reserved="true"/>
+            <state name="delivered"/>
+            <state name="closed"/>
+        </states>
+
+        <transitions>
+            <transition happy="true">
+                <source>new</source>
+                <target>payment pending</target>
+                <event>send-to-bydesign</event>
+            </transition>
+
+            <transition happy="true">
+                <source>payment pending</source>
+                <target>paid</target>
+                <event>pay</event>
+            </transition>
+
+            <transition happy="true">
+                <source>paid</source>
+                <target>shipped</target>
+                <event>ship</event>
+            </transition>
+
+            <transition happy="true">
+                <source>shipped</source>
+                <target>delivered</target>
+                <event>stock-update</event>
+            </transition>
+
+            <transition happy="true">
+                <source>delivered</source>
+                <target>closed</target>
+                <event>close</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="send-to-bydesign" onEnter="true" command="ByDesign/ExportOrder"/>
+            <event name="pay" manual="true"/>
+            <event name="ship" manual="true" command="Oms/SendOrderShipped"/>
+            <event name="stock-update" manual="true"/>
+            <event name="close" manual="true"/>
+        </events>
+    </process>
+
+</statemachine>
