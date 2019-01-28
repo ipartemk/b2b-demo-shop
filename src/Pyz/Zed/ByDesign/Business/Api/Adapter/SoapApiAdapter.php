@@ -1,14 +1,19 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ByDesign\Business\Api\Adapter;
 
 use Exception;
 use Generated\Shared\Transfer\ByDesignResponseTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
-use Pyz\Zed\ByDesign\ByDesignConfig;
 use Pyz\Zed\ByDesign\Business\Api\Converter\RequestConverterInterface;
 use Pyz\Zed\ByDesign\Business\Api\Converter\ResponseConverterInterface;
 use Pyz\Zed\ByDesign\Business\Api\Exception\ByDesignException;
+use Pyz\Zed\ByDesign\ByDesignConfig;
 use SoapClient;
 use SoapFault;
 

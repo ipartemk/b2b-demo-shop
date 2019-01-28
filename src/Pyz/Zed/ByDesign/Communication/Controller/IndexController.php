@@ -33,13 +33,11 @@ class IndexController extends AbstractController
         "items":
         [
             {
-                "itemId": "IdSalesOrderItem value",
                 "itemSku": "concrete product SKU value",
                 "itemStatus": "status value",
                 "stateEvent": "OMS Event name"
             },
             {
-                "itemId": "IdSalesOrderItem value",
                 "itemSku": "concrete product SKU value",
                 "itemStatus": "status value",
                 "stateEvent": "OMS Event name"
@@ -47,6 +45,7 @@ class IndexController extends AbstractController
             ...
         ]
     }
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
@@ -55,8 +54,8 @@ class IndexController extends AbstractController
     {
         $salesFacade = $this->getFactory()->getSalesFacade();
         $omsFacade = $this->getFactory()->getOmsFacade();
-        $data = json_decode($request->getContent(), true);
-//        $data = $this->mockData();
+//        $data = json_decode($request->getContent(), true);
+        $data = $this->mockData();
 
         $orderReference = $data['orderId'];
         $customerReference = $data['customerId'];
@@ -67,14 +66,15 @@ class IndexController extends AbstractController
         $orderTransfer = $salesFacade->getCustomerOrderByOrderReference($orderTransfer);
 
         // @todo handle if Order didn't found
+        foreach ($data['items'] as $item) {
+            $itemSku = $item['itemSku'];
 
-        foreach($data['items'] as $item) {
-            $idSalesOrderItem = $item['itemId'];
+            $salesOrderItemIds = $this->getSalesOrderItemIdsBySku($orderTransfer, $itemSku);
             $event = $item['stateEvent'];
+
             // Note: we do not MAP Events for now.
             // We agreed for presentation SAP and Spryker Shop have the same States and Events
-
-            $omsFacade->triggerEventForOneOrderItem($event, $idSalesOrderItem);
+            $omsFacade->triggerEventForOrderItems($event, $salesOrderItemIds);
         }
 
         // Note: For now agreed no Exceptions or Errors. Always success!
@@ -100,9 +100,28 @@ class IndexController extends AbstractController
     }
 
     /**
+     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
+     * @param string $itemSku
+     *
      * @return array
      */
-    protected function mockData()
+    protected function getSalesOrderItemIdsBySku(OrderTransfer $orderTransfer, $itemSku): array
+    {
+        $salesOrderItemIds = [];
+
+        foreach ($orderTransfer->getItems() as $itemTransfer) {
+            if ($itemTransfer->getSku() === $itemSku) {
+                $salesOrderItemIds[] = $itemTransfer->getIdSalesOrderItem();
+            }
+        }
+
+        return $salesOrderItemIds;
+    }
+
+    /**
+     * @return array
+     */
+    protected function mockData(): array
     {
         return [
             "orderId" => "DE--3",
@@ -110,17 +129,15 @@ class IndexController extends AbstractController
             "items" =>
             [
                 [
-                    "itemId" => "7",
                     "itemSku" => "424270",
                     "itemStatus" => "paid",
-                    "stateEvent" => "pay"
-                ],[
-                    "itemId" => "9",
+                    "stateEvent" => "pay",
+                ], [
                     "itemSku" => "104524",
                     "itemStatus" => "paid",
-                    "stateEvent" => "pay"
+                    "stateEvent" => "pay",
                 ],
-            ]
+            ],
         ];
     }
 }

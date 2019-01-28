@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\ByDesign\Business\Model;
 
 use Generated\Shared\Transfer\ByDesignResponseTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Orm\Zed\Sales\Persistence\SpySalesOrderQuery;
 use Pyz\Zed\ByDesign\Business\Api\Adapter\ApiAdapterInterface;
-use Pyz\Zed\ByDesign\ByDesignConfig;
 use Pyz\Zed\ByDesign\Business\Logger\ByDesignLoggerInterface;
+use Pyz\Zed\ByDesign\ByDesignConfig;
 
 class OrderCreator implements OrderCreatorInterface
 {

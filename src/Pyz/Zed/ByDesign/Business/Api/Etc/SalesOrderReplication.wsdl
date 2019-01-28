@@ -128,6 +128,14 @@
                     <xsd:element name="Description" type="xi3:SHORT_Description" minOccurs="0"/>
                     <xsd:element name="Z_ExternalItemID" type="xi5:ID" minOccurs="0"/>
                     <xsd:element name="Product" type="SalesOrderSalesOrderInCreateRequestItemProduct" minOccurs="0"/>
+                    <xsd:element name="FirstRequestedItemScheduleLine"
+                                 type="SalesOrderSalesOrderInCreateRequestItemFirstRequestedItemScheduleLine"
+                                 minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="SalesOrderSalesOrderInCreateRequestItemFirstRequestedItemScheduleLine">
+                <xsd:sequence>
+                    <xsd:element name="Quantity" type="xi3:Quantity" minOccurs="0"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:complexType name="SalesOrderSalesOrderInCreateRequestItemProduct">
@@ -829,6 +837,14 @@
                                  type="SalesOrderSalesOrderInReadByIDResponseItemHierarchyRelationship" minOccurs="0"/>
                     <xsd:element name="Status" type="SalesOrderSalesOrderInReadByIDResponseItemStatus" minOccurs="0"/>
                     <xsd:element name="Z_ExternalItemID" type="xi5:ID" minOccurs="0"/>
+                    <xsd:element name="FirstRequestedItemScheduleLine"
+                                 type="SalesOrderSalesOrderInReadByIDResponseItemFirstRequestedItemScheduleLine"
+                                 minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="SalesOrderSalesOrderInReadByIDResponseItemFirstRequestedItemScheduleLine">
+                <xsd:sequence>
+                    <xsd:element name="Quantity" type="xi3:Quantity" minOccurs="0"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:complexType name="SalesOrderSalesOrderInReadByIDResponseItemHierarchyRelationship">
@@ -2020,6 +2036,26 @@
                 <xsd:restriction base="xsd:token">
                     <xsd:maxLength value="2"/>
                     <xsd:minLength value="1"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="Quantity">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="EN">
+                        <ccts:RepresentationTerm>Quantity</ccts:RepresentationTerm>
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleContent>
+                    <xsd:extension base="Quantity.Content">
+                        <xsd:attribute name="unitCode" type="MeasureUnitCode"/>
+                    </xsd:extension>
+                </xsd:simpleContent>
+            </xsd:complexType>
+            <xsd:simpleType name="Quantity.Content">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="31"/>
+                    <xsd:fractionDigits value="14"/>
+                    <xsd:maxInclusive value="99999999999999999.99999999999999"/>
+                    <xsd:minInclusive value="-99999999999999999.99999999999999"/>
                 </xsd:restriction>
             </xsd:simpleType>
             <xsd:complexType name="QueryProcessingConditions">
