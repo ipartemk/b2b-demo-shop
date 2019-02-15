@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "057e6a8b89aaa4336af7a991e34e085b",
+    "content-hash": "e8752606f097ff177e9978370c3a4149",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -32476,7 +32476,8 @@
         "ext-pdo_pgsql": "*",
         "ext-pgsql": "*",
         "ext-readline": "*",
-        "ext-redis": "*"
+        "ext-redis": "*",
+        "ext-soap": "*"
     },
     "platform-dev": [],
     "platform-overrides": {

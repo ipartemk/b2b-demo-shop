@@ -148,6 +148,12 @@ $config[AclConstants::ACL_DEFAULT_RULES] = [
         'action' => 'index',
         'type' => 'allow',
     ],
+    [
+        'bundle' => 'by-design',
+        'controller' => 'index',
+        'action' => 'index',
+        'type' => 'allow',
+    ],
 ];
 // ACL: Allow or disallow of urls for Zed Admin GUI
 $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
@@ -166,6 +172,12 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
     [
         'bundle' => 'heartbeat',
         'controller' => 'heartbeat',
+        'action' => 'index',
+        'type' => 'allow',
+    ],
+    [
+        'bundle' => 'by-design',
+        'controller' => 'index',
         'action' => 'index',
         'type' => 'allow',
     ],
@@ -363,11 +375,13 @@ $config[OmsConstants::PROCESS_LOCATION] = [
     $config[KernelConstants::SPRYKER_ROOT] . '/dummy-payment/config/Zed/Oms',
 ];
 $config[OmsConstants::ACTIVE_PROCESSES] = [
-    'DummyPayment01',
+//    'DummyPayment01',
+//    'Nopayment01',
+    'ByDesign01',
 ];
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
-    DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
-    DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
+    DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'ByDesign01',
+    DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'ByDesign01',
 ];
 
 // ---------- Queue
@@ -453,3 +467,7 @@ $config[MonitoringConstants::IGNORABLE_TRANSACTIONS] = [
 ];
 // -------- DataImport
 $config[DataImportConstants::IS_ENABLE_INTERNAL_IMAGE] = false;
+
+// ByDesign SOAP
+$config[\Pyz\Shared\ByDesign\ByDesignConstants::SOAP_LOGIN] = '_SPRYKER';
+$config[\Pyz\Shared\ByDesign\ByDesignConstants::SOAP_PASSWORD] = 'Mu126q2ge5VgEQkhTaWj';
