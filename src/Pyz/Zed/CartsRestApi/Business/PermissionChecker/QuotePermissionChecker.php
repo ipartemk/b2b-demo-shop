@@ -1,15 +1,14 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\CartsRestApi\Business\PermissionChecker;
 
-use Spryker\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionChecker as SprykerQuotePermissionChecker;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Zed\Kernel\PermissionAwareTrait;
+use Spryker\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionChecker as SprykerQuotePermissionChecker;
 
 class QuotePermissionChecker extends SprykerQuotePermissionChecker implements QuotePermissionCheckerInterface
 {

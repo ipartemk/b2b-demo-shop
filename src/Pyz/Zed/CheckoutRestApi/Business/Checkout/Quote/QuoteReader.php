@@ -1,17 +1,16 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\CheckoutRestApi\Business\Checkout\Quote;
 
-use Spryker\Zed\CheckoutRestApi\Business\Checkout\Quote\QuoteReader as SprykerQuoteReader;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
-use Spryker\Zed\CheckoutRestApi\Dependency\Facade\CheckoutRestApiToCartsRestApiFacadeInterface;
+use Spryker\Zed\CheckoutRestApi\Business\Checkout\Quote\QuoteReader as SprykerQuoteReader;
 
 class QuoteReader extends SprykerQuoteReader
 {
@@ -22,8 +21,7 @@ class QuoteReader extends SprykerQuoteReader
      */
     public function findCustomerQuoteByUuid(RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer): ?QuoteTransfer
     {
-        if (
-            !$restCheckoutRequestAttributesTransfer->getCustomer()
+        if (!$restCheckoutRequestAttributesTransfer->getCustomer()
             || !$restCheckoutRequestAttributesTransfer->getCustomer()->getCustomerReference()
         ) {
             return null;
