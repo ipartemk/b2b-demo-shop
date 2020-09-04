@@ -1,21 +1,20 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Glue\CheckoutRestApi\Processor\Checkout;
 
 use Generated\Shared\Transfer\RestAddressTransfer;
 use Generated\Shared\Transfer\RestApproverDetailsTransfer;
+use Generated\Shared\Transfer\RestCheckoutResponseAttributesTransfer;
+use Generated\Shared\Transfer\RestCheckoutResponseTransfer;
 use Generated\Shared\Transfer\RestCustomerTransfer;
 use Generated\Shared\Transfer\RestPaymentTransfer;
 use Generated\Shared\Transfer\RestPointOfContactTransfer;
 use Generated\Shared\Transfer\RestShipmentTransfer;
-use Spryker\Glue\CheckoutRestApi\Processor\Checkout\CheckoutResponseMapper as SprykerCheckoutResponseMapper;
-use Generated\Shared\Transfer\RestCheckoutResponseAttributesTransfer;
-use Generated\Shared\Transfer\RestCheckoutResponseTransfer;
 use Spryker\Glue\CheckoutRestApiExtension\Dependency\Plugin\CheckoutResponseMapperPluginInterface;
 
 class CheckoutResponseExtendMapper implements CheckoutResponseMapperPluginInterface
@@ -38,7 +37,7 @@ class CheckoutResponseExtendMapper implements CheckoutResponseMapperPluginInterf
                 (new RestCustomerTransfer())
                     ->fromArray($quoteTransfer->getCustomer()->toArray(), true)
                 // @artem
-//                    ->setUuidCompanyUser($restCheckoutRequestAttributesTransfer->getCustomer()->getUuidCompanyUser())
+                //                    ->setUuidCompanyUser($restCheckoutRequestAttributesTransfer->getCustomer()->getUuidCompanyUser())
             );
         }
         if ($quoteTransfer->getBillingAddress()) {

@@ -10,10 +10,8 @@ namespace Pyz\Glue\CheckoutRestApi\Processor\Checkout;
 use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
 use Generated\Shared\Transfer\RestCheckoutResponseAttributesTransfer;
 use Generated\Shared\Transfer\RestCheckoutResponseTransfer;
-use Generated\Shared\Transfer\RestCheckoutUpdateResponseAttributesTransfer;
-use Generated\Shared\Transfer\RestCheckoutUpdateResponseTransfer;
-use Spryker\Client\CheckoutRestApi\CheckoutRestApiClientInterface;
 use Pyz\Glue\CheckoutRestApi\CheckoutRestApiConfig;
+use Spryker\Client\CheckoutRestApi\CheckoutRestApiClientInterface;
 use Spryker\Glue\CheckoutRestApi\Processor\Checkout\CheckoutProcessor as SprykerCheckoutProcessor;
 use Spryker\Glue\CheckoutRestApi\Processor\Checkout\CheckoutResponseMapperInterface;
 use Spryker\Glue\CheckoutRestApi\Processor\Error\RestCheckoutErrorMapperInterface;
@@ -22,7 +20,6 @@ use Spryker\Glue\CheckoutRestApi\Processor\Validator\CheckoutRequestValidatorInt
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface;
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
-use Symfony\Component\HttpFoundation\Response;
 
 class CheckoutProcessor extends SprykerCheckoutProcessor
 {
