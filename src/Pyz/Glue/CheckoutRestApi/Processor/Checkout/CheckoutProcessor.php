@@ -8,7 +8,12 @@
 namespace Pyz\Glue\CheckoutRestApi\Processor\Checkout;
 
 use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
+use Generated\Shared\Transfer\RestCheckoutResponseAttributesTransfer;
+use Generated\Shared\Transfer\RestCheckoutResponseTransfer;
+use Generated\Shared\Transfer\RestCheckoutUpdateResponseAttributesTransfer;
+use Generated\Shared\Transfer\RestCheckoutUpdateResponseTransfer;
 use Spryker\Client\CheckoutRestApi\CheckoutRestApiClientInterface;
+use Pyz\Glue\CheckoutRestApi\CheckoutRestApiConfig;
 use Spryker\Glue\CheckoutRestApi\Processor\Checkout\CheckoutProcessor as SprykerCheckoutProcessor;
 use Spryker\Glue\CheckoutRestApi\Processor\Checkout\CheckoutResponseMapperInterface;
 use Spryker\Glue\CheckoutRestApi\Processor\Error\RestCheckoutErrorMapperInterface;
@@ -17,6 +22,7 @@ use Spryker\Glue\CheckoutRestApi\Processor\Validator\CheckoutRequestValidatorInt
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface;
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class CheckoutProcessor extends SprykerCheckoutProcessor
 {
@@ -70,5 +76,30 @@ class CheckoutProcessor extends SprykerCheckoutProcessor
         }
 
         return $this->createOrderPlacedResponse($restCheckoutResponseTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\RestCheckoutResponseTransfer $restCheckoutResponseTransfer
+     *
+     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
+     */
+    protected function createOrderPlacedResponse(
+        RestCheckoutResponseTransfer $restCheckoutResponseTransfer
+    ): RestResponseInterface {
+        $restCheckoutResponseAttributesTransfer = $this->checkoutResponseMapper
+            ->mapRestCheckoutResponseTransferToRestCheckoutResponseAttributesTransfer(
+                $restCheckoutResponseTransfer,
+                new RestCheckoutResponseAttributesTransfer()
+            );
+
+        $restResource = $this->restResourceBuilder->createRestResource(
+            CheckoutRestApiConfig::RESOURCE_CHECKOUT,
+            $restCheckoutResponseTransfer->getOrderReference(),
+            $restCheckoutResponseAttributesTransfer
+        );
+
+        return $this->restResourceBuilder
+            ->createRestResponse()
+            ->addResource($restResource);
     }
 }

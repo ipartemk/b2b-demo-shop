@@ -58,8 +58,10 @@ class QuoteReader extends SprykerQuoteReader
             }
         }
 
-        if (!$quoteTransfer->getCustomer()) {
-            $customerTransfer = (new CustomerTransfer())->setCustomerReference($customerReference);
+        if (!$quoteTransfer->getCustomer()
+            || $quoteTransfer->getCustomerReference() !== $customerReference
+        ) {
+            $customerTransfer = (new CustomerTransfer())->setCustomerReference($quoteTransfer->getCustomerReference());
             $quoteTransfer->setCustomer($customerTransfer);
         }
 

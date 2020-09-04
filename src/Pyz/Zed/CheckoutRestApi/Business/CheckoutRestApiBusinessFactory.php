@@ -12,6 +12,8 @@ use Pyz\Zed\CheckoutRestApi\Business\Checkout\CheckoutDataWriterInterface;
 use Pyz\Zed\CheckoutRestApi\Business\Checkout\Quote\QuoteReader;
 use Pyz\Zed\CheckoutRestApi\CheckoutRestApiDependencyProvider;
 use Pyz\Zed\CompanyUser\Business\CompanyUserFacadeInterface;
+use Pyz\Zed\CheckoutRestApi\Business\Checkout\PlaceOrderProcessor;
+use Spryker\Zed\CheckoutRestApi\Business\Checkout\PlaceOrderProcessorInterface;
 use Spryker\Zed\CheckoutRestApi\Business\Checkout\Quote\QuoteReaderInterface;
 use Spryker\Zed\CheckoutRestApi\Business\CheckoutRestApiBusinessFactory as SprykerCheckoutRestApiBusinessFactory;
 use Spryker\Zed\Quote\Business\QuoteFacadeInterface;
@@ -22,6 +24,22 @@ use Spryker\Zed\QuoteApproval\Business\QuoteApprovalFacadeInterface;
  */
 class CheckoutRestApiBusinessFactory extends SprykerCheckoutRestApiBusinessFactory
 {
+    /**
+     * @return \Spryker\Zed\CheckoutRestApi\Business\Checkout\PlaceOrderProcessorInterface
+     */
+    public function createPlaceOrderProcessor(): PlaceOrderProcessorInterface
+    {
+        return new PlaceOrderProcessor(
+            $this->createQuoteReader(),
+            $this->getCartFacade(),
+            $this->getCheckoutFacade(),
+            $this->getQuoteFacade(),
+            $this->getCalculationFacade(),
+            $this->getQuoteMapperPlugins(),
+            $this->getCheckoutDataValidatorPlugins()
+        );
+    }
+
     /**
      * @return \Pyz\Zed\CheckoutRestApi\Business\Checkout\CheckoutDataWriterInterface
      */
