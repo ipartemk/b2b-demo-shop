@@ -50,6 +50,8 @@ class QuoteReader extends SprykerQuoteReader
                 }
                 if ($quoteApprovalTransfer->getApprover()->getCustomer()->getCustomerReference() === $customerReference) {
                     $permission = true;
+
+                    break;
                 }
             }
 
