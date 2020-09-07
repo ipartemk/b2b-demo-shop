@@ -1,23 +1,16 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\PersistentCart\Business\Model;
 
-use Spryker\Zed\PersistentCart\Business\Model\QuoteResolver as SprykerQuoteResolver;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\MessageTransfer;
-use Generated\Shared\Transfer\QuoteResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Generated\Shared\Transfer\QuoteUpdateRequestAttributesTransfer;
-use Spryker\Zed\Kernel\PermissionAwareTrait;
-use Spryker\Zed\PersistentCart\Dependency\Facade\PersistentCartToMessengerFacadeInterface;
-use Spryker\Zed\PersistentCart\Dependency\Facade\PersistentCartToQuoteFacadeInterface;
-use Spryker\Zed\PersistentCart\Dependency\Facade\PersistentCartToStoreFacadeInterface;
-use Spryker\Zed\PersistentCart\PersistentCartConfig;
+use Spryker\Zed\PersistentCart\Business\Model\QuoteResolver as SprykerQuoteResolver;
 
 class QuoteResolver extends SprykerQuoteResolver
 {

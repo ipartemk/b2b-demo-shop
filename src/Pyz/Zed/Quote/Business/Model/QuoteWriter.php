@@ -1,21 +1,15 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Quote\Business\Model;
 
-use Spryker\Zed\Quote\Business\Model\QuoteWriter as SprykerQuoteWriter;
 use Generated\Shared\Transfer\QuoteResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Zed\Kernel\Persistence\EntityManager\TransactionTrait;
-use Spryker\Zed\Quote\Business\Quote\QuoteFieldsConfiguratorInterface;
-use Spryker\Zed\Quote\Business\Validator\QuoteValidatorInterface;
-use Spryker\Zed\Quote\Dependency\Facade\QuoteToStoreFacadeInterface;
-use Spryker\Zed\Quote\Persistence\QuoteEntityManagerInterface;
-use Spryker\Zed\Quote\Persistence\QuoteRepositoryInterface;
+use Spryker\Zed\Quote\Business\Model\QuoteWriter as SprykerQuoteWriter;
 
 class QuoteWriter extends SprykerQuoteWriter
 {
