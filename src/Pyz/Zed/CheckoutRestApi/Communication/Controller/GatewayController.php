@@ -9,6 +9,8 @@ namespace Pyz\Zed\CheckoutRestApi\Communication\Controller;
 
 use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
 use Generated\Shared\Transfer\RestCheckoutUpdateResponseTransfer;
+use Generated\Shared\Transfer\RestQuoteDeclineRequestAttributesTransfer;
+use Generated\Shared\Transfer\RestQuoteDeclineResponseTransfer;
 use Spryker\Zed\CheckoutRestApi\Communication\Controller\GatewayController as SprykerGatewayController;
 
 /**
@@ -21,8 +23,20 @@ class GatewayController extends SprykerGatewayController
      *
      * @return \Generated\Shared\Transfer\RestCheckoutUpdateResponseTransfer
      */
-    public function updateCheckoutDataAction(RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer): RestCheckoutUpdateResponseTransfer
-    {
+    public function updateCheckoutDataAction(
+        RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
+    ): RestCheckoutUpdateResponseTransfer {
         return $this->getFacade()->updateCheckoutData($restCheckoutRequestAttributesTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\RestQuoteDeclineRequestAttributesTransfer $restQuoteDeclineRequestAttributesTransfer
+     *
+     * @return \Generated\Shared\Transfer\RestQuoteDeclineResponseTransfer
+     */
+    public function declineQuoteAction(
+        RestQuoteDeclineRequestAttributesTransfer $restQuoteDeclineRequestAttributesTransfer
+    ): RestQuoteDeclineResponseTransfer {
+        return $this->getFacade()->declineQuote($restQuoteDeclineRequestAttributesTransfer);
     }
 }

@@ -12,7 +12,7 @@ use Generated\Shared\Transfer\RestCustomerTransfer;
 use Spryker\Glue\CheckoutRestApi\Processor\Customer\CustomerMapper as SprykerCustomerMapper;
 use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
 
-class CustomerMapper extends SprykerCustomerMapper
+class CustomerMapper extends SprykerCustomerMapper implements CustomerMapperInterface
 {
     /**
      * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest

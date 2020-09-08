@@ -15,6 +15,10 @@ class CheckoutRestApiConfig extends SprykerCheckoutRestApiConfig
     public const CONTROLLER_CHECKOUT_UPDATE = 'checkout-update-resource';
     public const ACTION_CHECKOUT_UPDATE_POST = 'post';
 
+    public const RESOURCE_QUOTE_DECLINE = 'quote-decline';
+    public const CONTROLLER_QUOTE_DECLINE = 'quote-decline-resource';
+    public const ACTION_QUOTE_DECLINE_POST = 'post';
+
     protected const PAYMENT_METHOD_REQUIRED_FIELDS = [
         'dummyPaymentInvoice' => ['dummyPaymentInvoice.dateOfBirth'],
         'dummyPaymentCreditCard' => [

@@ -13,9 +13,21 @@
         <property name="quote" type="Quote"/>
     </transfer>
 
+    <transfer name="RestQuoteDeclineResponse">
+        <property name="isSuccess" type="bool"/>
+        <property name="errors" type="RestCheckoutError[]" singular="error"/>
+        <property name="quote" type="Quote"/>
+    </transfer>
+
     <transfer name="RestCheckoutRequestAttributes">
         <property name="pointOfContact" type="RestPointOfContact" restRequestParameter="yes"/>
-        <property name="approverDetails" type="ApproverDetails" restRequestParameter="yes"/>
+        <property name="approverDetails" type="RestApproverDetails" restRequestParameter="yes"/>
+    </transfer>
+
+    <transfer name="RestQuoteDeclineRequestAttributes">
+        <property name="idCart" type="string" restRequestParameter="yes"/>
+        <property name="customer" type="RestCustomer" restRequestParameter="yes"/>
+        <property name="approverDetails" type="RestApproverDetails" restRequestParameter="yes"/>
     </transfer>
 
     <transfer name="RestCustomer">
@@ -43,6 +55,12 @@
         <property name="approverDetails" type="RestApproverDetails"/>
     </transfer>
 
+    <transfer name="RestQuoteDeclineResponseAttributes">
+        <property name="customer" type="RestCustomer"/>
+        <property name="idCart" type="string"/>
+        <property name="approverDetails" type="RestApproverDetails"/>
+    </transfer>
+
     <transfer name="RestPointOfContact">
         <property name="department" type="string"/>
         <property name="firstName" type="string"/>
@@ -61,6 +79,7 @@
         <property name="lastName" type="string"/>
         <property name="comment" type="string"/>
         <property name="dueDate" type="string"/>
+        <property name="companyUserId" type="string"/>
     </transfer>
 
 </transfers>

@@ -10,6 +10,8 @@ namespace Pyz\Zed\CheckoutRestApi\Business;
 use Pyz\Zed\CheckoutRestApi\Business\Checkout\CheckoutDataWriter;
 use Pyz\Zed\CheckoutRestApi\Business\Checkout\CheckoutDataWriterInterface;
 use Pyz\Zed\CheckoutRestApi\Business\Checkout\PlaceOrderProcessor;
+use Pyz\Zed\CheckoutRestApi\Business\Checkout\Quote\QuoteDecliner;
+use Pyz\Zed\CheckoutRestApi\Business\Checkout\Quote\QuoteDeclinerInterface;
 use Pyz\Zed\CheckoutRestApi\Business\Checkout\Quote\QuoteReader;
 use Pyz\Zed\CheckoutRestApi\CheckoutRestApiDependencyProvider;
 use Pyz\Zed\CompanyUser\Business\CompanyUserFacadeInterface;
@@ -49,6 +51,19 @@ class CheckoutRestApiBusinessFactory extends SprykerCheckoutRestApiBusinessFacto
             $this->createQuoteReader(),
             $this->getQuoteMapperPlugins(),
             $this->getCalculationFacade(),
+            $this->getBaseQuoteFacade(),
+            $this->getQuoteApprovalFacade(),
+            $this->getCompanyUserFacade()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\CheckoutRestApi\Business\Checkout\Quote\QuoteDeclinerInterface
+     */
+    public function createQuoteDecliner(): QuoteDeclinerInterface
+    {
+        return new QuoteDecliner(
+            $this->createQuoteReader(),
             $this->getBaseQuoteFacade(),
             $this->getQuoteApprovalFacade(),
             $this->getCompanyUserFacade()
