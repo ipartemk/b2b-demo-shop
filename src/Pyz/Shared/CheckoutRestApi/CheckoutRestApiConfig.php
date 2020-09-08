@@ -11,4 +11,6 @@ use Spryker\Shared\CheckoutRestApi\CheckoutRestApiConfig as SprykerCheckoutRestA
 
 class CheckoutRestApiConfig extends SprykerCheckoutRestApiConfig
 {
+    public const ERROR_QUOTE_APPROVAL_NOT_FOUND = 'ERROR_QUOTE_APPROVAL_NOT_FOUND';
+    public const ERROR_QUOTE_DECLINE_NOT_SUCCESSFUL = 'ERROR_QUOTE_DECLINE_NOT_SUCCESSFUL';
 }

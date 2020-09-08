@@ -9,6 +9,8 @@ namespace Pyz\Client\CheckoutRestApi;
 
 use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
 use Generated\Shared\Transfer\RestCheckoutUpdateResponseTransfer;
+use Generated\Shared\Transfer\RestQuoteDeclineRequestAttributesTransfer;
+use Generated\Shared\Transfer\RestQuoteDeclineResponseTransfer;
 use Spryker\Client\CheckoutRestApi\CheckoutRestApiClientInterface as SpykerCheckoutRestApiClientInterface;
 
 interface CheckoutRestApiClientInterface extends SpykerCheckoutRestApiClientInterface
@@ -27,5 +29,21 @@ interface CheckoutRestApiClientInterface extends SpykerCheckoutRestApiClientInte
      *
      * @return \Generated\Shared\Transfer\RestCheckoutUpdateResponseTransfer
      */
-    public function updateCheckoutData(RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer): RestCheckoutUpdateResponseTransfer;
+    public function updateCheckoutData(
+        RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
+    ): RestCheckoutUpdateResponseTransfer;
+
+    /**
+     * Specification:
+     * - Makes Zed request.
+     * - Decline Quote by approval.
+     * - Saves quote.
+     *
+     * @param \Generated\Shared\Transfer\RestQuoteDeclineRequestAttributesTransfer $restQuoteDeclineRequestAttributesTransfer
+     *
+     * @return \Generated\Shared\Transfer\RestQuoteDeclineResponseTransfer
+     */
+    public function declineQuote(
+        RestQuoteDeclineRequestAttributesTransfer $restQuoteDeclineRequestAttributesTransfer
+    ): RestQuoteDeclineResponseTransfer;
 }

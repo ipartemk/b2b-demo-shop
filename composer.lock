@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1cb63ff59e465a1428c112cab22f3eee",
+    "content-hash": "9774116b7b1c83c6e80c46f75fda9af5",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -281,16 +281,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.19",
+            "version": "2.1.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "840d5603eb84cc81a6a0382adac3293e57c1c64c"
+                "reference": "f46887bc48db66c7f38f668eb7d6ae54583617ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/840d5603eb84cc81a6a0382adac3293e57c1c64c",
-                "reference": "840d5603eb84cc81a6a0382adac3293e57c1c64c",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/f46887bc48db66c7f38f668eb7d6ae54583617ff",
+                "reference": "f46887bc48db66c7f38f668eb7d6ae54583617ff",
                 "shasum": ""
             },
             "require": {
@@ -335,7 +335,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-08-08T21:28:19+00:00"
+            "time": "2020-09-06T13:44:32+00:00"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -1716,16 +1716,16 @@
         },
         {
             "name": "predis/predis",
-            "version": "v1.1.3",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/predis/predis.git",
-                "reference": "2ce537d75e610550f5337e41b2a971417999b028"
+                "reference": "8be2418f0116572f1937083daf5cceb1bddc9f0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/predis/predis/zipball/2ce537d75e610550f5337e41b2a971417999b028",
-                "reference": "2ce537d75e610550f5337e41b2a971417999b028",
+                "url": "https://api.github.com/repos/predis/predis/zipball/8be2418f0116572f1937083daf5cceb1bddc9f0d",
+                "reference": "8be2418f0116572f1937083daf5cceb1bddc9f0d",
                 "shasum": ""
             },
             "require": {
@@ -1781,7 +1781,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2020-08-18T21:00:59+00:00"
+            "time": "2020-08-29T22:15:08+00:00"
         },
         {
             "name": "propel/propel",
@@ -12037,16 +12037,16 @@
         },
         {
             "name": "spryker/cart-code",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cart-code.git",
-                "reference": "140a64ecd28f8db0b1bf67567d5812ced7ab4b84"
+                "reference": "c23c2b885a40e96c3513efb48bb42481ae4a1edc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cart-code/zipball/140a64ecd28f8db0b1bf67567d5812ced7ab4b84",
-                "reference": "140a64ecd28f8db0b1bf67567d5812ced7ab4b84",
+                "url": "https://api.github.com/repos/spryker/cart-code/zipball/c23c2b885a40e96c3513efb48bb42481ae4a1edc",
+                "reference": "c23c2b885a40e96c3513efb48bb42481ae4a1edc",
                 "shasum": ""
             },
             "require": {
@@ -12060,6 +12060,7 @@
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/discount": "*",
+                "spryker/gift-card": "*",
                 "spryker/testify": "*"
             },
             "type": "library",
@@ -12078,7 +12079,7 @@
                 "proprietary"
             ],
             "description": "CartCode module",
-            "time": "2019-12-06T10:24:25+00:00"
+            "time": "2020-05-29T07:08:27+00:00"
         },
         {
             "name": "spryker/cart-code-extension",
@@ -12121,21 +12122,22 @@
         },
         {
             "name": "spryker/cart-codes-rest-api",
-            "version": "1.0.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cart-codes-rest-api.git",
-                "reference": "6e815d91e482f05395fa82e8e2f625325bcf25a6"
+                "reference": "889a23935c6b30e0fb5a738007bfc95485b65d16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cart-codes-rest-api/zipball/6e815d91e482f05395fa82e8e2f625325bcf25a6",
-                "reference": "6e815d91e482f05395fa82e8e2f625325bcf25a6",
+                "url": "https://api.github.com/repos/spryker/cart-codes-rest-api/zipball/889a23935c6b30e0fb5a738007bfc95485b65d16",
+                "reference": "889a23935c6b30e0fb5a738007bfc95485b65d16",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2",
                 "spryker/cart-code": "^1.1.0",
+                "spryker/cart-codes-rest-api-extension": "^1.0.0",
                 "spryker/carts-rest-api": "^5.7.0",
                 "spryker/glue-application": "^1.9.0",
                 "spryker/glue-application-extension": "^1.0.0",
@@ -12167,7 +12169,45 @@
                 "proprietary"
             ],
             "description": "CartCodesRestApi module",
-            "time": "2019-12-07T07:30:46+00:00"
+            "time": "2020-05-29T10:03:55+00:00"
+        },
+        {
+            "name": "spryker/cart-codes-rest-api-extension",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/cart-codes-rest-api-extension.git",
+                "reference": "e98638213be5982b0df44707759e6716fde10338"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/cart-codes-rest-api-extension/zipball/e98638213be5982b0df44707759e6716fde10338",
+                "reference": "e98638213be5982b0df44707759e6716fde10338",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CartCodesRestApiExtension module",
+            "time": "2020-03-13T12:31:59+00:00"
         },
         {
             "name": "spryker/cart-currency-connector",
@@ -21951,16 +21991,16 @@
         },
         {
             "name": "spryker/gui",
-            "version": "3.34.3",
+            "version": "3.34.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/gui.git",
-                "reference": "e2685276a9f564094dc1ade0b27f7b38d1c9490b"
+                "reference": "6df8617b1013428aa68b74643399c6f7f219a7ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/gui/zipball/e2685276a9f564094dc1ade0b27f7b38d1c9490b",
-                "reference": "e2685276a9f564094dc1ade0b27f7b38d1c9490b",
+                "url": "https://api.github.com/repos/spryker/gui/zipball/6df8617b1013428aa68b74643399c6f7f219a7ab",
+                "reference": "6df8617b1013428aa68b74643399c6f7f219a7ab",
                 "shasum": ""
             },
             "require": {
@@ -22004,7 +22044,7 @@
                 "proprietary"
             ],
             "description": "Gui module",
-            "time": "2020-08-18T11:51:30+00:00"
+            "time": "2020-08-27T08:58:23+00:00"
         },
         {
             "name": "spryker/guzzle",
@@ -22389,16 +22429,16 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.55.0",
+            "version": "3.55.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/kernel.git",
-                "reference": "d53078ab139300243b9b3fd0bbc71f9f85a39b7d"
+                "reference": "1b0c8bfe97d1d596ab1f8cac1d59a0628001d18c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/kernel/zipball/d53078ab139300243b9b3fd0bbc71f9f85a39b7d",
-                "reference": "d53078ab139300243b9b3fd0bbc71f9f85a39b7d",
+                "url": "https://api.github.com/repos/spryker/kernel/zipball/1b0c8bfe97d1d596ab1f8cac1d59a0628001d18c",
+                "reference": "1b0c8bfe97d1d596ab1f8cac1d59a0628001d18c",
                 "shasum": ""
             },
             "require": {
@@ -22443,7 +22483,7 @@
                 "proprietary"
             ],
             "description": "Kernel module",
-            "time": "2020-08-13T10:20:47+00:00"
+            "time": "2020-09-01T07:11:39+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -35817,16 +35857,16 @@
         },
         {
             "name": "spryker/twig",
-            "version": "3.11.1",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/twig.git",
-                "reference": "25b9b236005315ad436484ce6af0847682acacfc"
+                "reference": "511c393478878316879910cc61374c546c6d63a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/twig/zipball/25b9b236005315ad436484ce6af0847682acacfc",
-                "reference": "25b9b236005315ad436484ce6af0847682acacfc",
+                "url": "https://api.github.com/repos/spryker/twig/zipball/511c393478878316879910cc61374c546c6d63a6",
+                "reference": "511c393478878316879910cc61374c546c6d63a6",
                 "shasum": ""
             },
             "require": {
@@ -35870,7 +35910,7 @@
                 "proprietary"
             ],
             "description": "Twig module",
-            "time": "2020-08-18T11:51:30+00:00"
+            "time": "2020-08-31T19:49:01+00:00"
         },
         {
             "name": "spryker/twig-extension",
@@ -37461,16 +37501,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v4.4.11",
+            "version": "v4.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "b1d8f0d9341ea1d378b8b043ba90739f37c49d36"
+                "reference": "043bf8652c307ebc23ce44047d215eec889d8850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/b1d8f0d9341ea1d378b8b043ba90739f37c49d36",
-                "reference": "b1d8f0d9341ea1d378b8b043ba90739f37c49d36",
+                "url": "https://api.github.com/repos/symfony/config/zipball/043bf8652c307ebc23ce44047d215eec889d8850",
+                "reference": "043bf8652c307ebc23ce44047d215eec889d8850",
                 "shasum": ""
             },
             "require": {
@@ -37521,20 +37561,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2020-07-15T08:27:46+00:00"
+            "time": "2020-08-10T07:27:51+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.11",
+            "version": "v4.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "55d07021da933dd0d633ffdab6f45d5b230c7e02"
+                "reference": "b39fd99b9297b67fb7633b7d8083957a97e1e727"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/55d07021da933dd0d633ffdab6f45d5b230c7e02",
-                "reference": "55d07021da933dd0d633ffdab6f45d5b230c7e02",
+                "url": "https://api.github.com/repos/symfony/console/zipball/b39fd99b9297b67fb7633b7d8083957a97e1e727",
+                "reference": "b39fd99b9297b67fb7633b7d8083957a97e1e727",
                 "shasum": ""
             },
             "require": {
@@ -37598,7 +37638,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2020-07-06T13:18:39+00:00"
+            "time": "2020-09-02T07:07:21+00:00"
         },
         {
             "name": "symfony/debug",
@@ -37898,16 +37938,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.4.11",
+            "version": "v4.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "b27f491309db5757816db672b256ea2e03677d30"
+                "reference": "27575bcbc68db1f6d06218891296572c9b845704"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/b27f491309db5757816db672b256ea2e03677d30",
-                "reference": "b27f491309db5757816db672b256ea2e03677d30",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/27575bcbc68db1f6d06218891296572c9b845704",
+                "reference": "27575bcbc68db1f6d06218891296572c9b845704",
                 "shasum": ""
             },
             "require": {
@@ -37944,20 +37984,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2020-05-30T18:50:54+00:00"
+            "time": "2020-08-21T17:19:37+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.4.11",
+            "version": "v4.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "2727aa35fddfada1dd37599948528e9b152eb742"
+                "reference": "2a78590b2c7e3de5c429628457c47541c58db9c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/2727aa35fddfada1dd37599948528e9b152eb742",
-                "reference": "2727aa35fddfada1dd37599948528e9b152eb742",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/2a78590b2c7e3de5c429628457c47541c58db9c7",
+                "reference": "2a78590b2c7e3de5c429628457c47541c58db9c7",
                 "shasum": ""
             },
             "require": {
@@ -37993,7 +38033,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-07-05T09:39:30+00:00"
+            "time": "2020-08-17T09:56:45+00:00"
         },
         {
             "name": "symfony/form",
@@ -39589,20 +39629,20 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v4.4.2",
+            "version": "v4.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "f7669f48a9633bf8139bc026c755e894b7206677"
+                "reference": "700e6e50174b0cdcf0fa232773bec5c314680575"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/f7669f48a9633bf8139bc026c755e894b7206677",
-                "reference": "f7669f48a9633bf8139bc026c755e894b7206677",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/700e6e50174b0cdcf0fa232773bec5c314680575",
+                "reference": "700e6e50174b0cdcf0fa232773bec5c314680575",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": ">=7.1.3",
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/translation-contracts": "^1.1.6|^2"
             },
@@ -39661,7 +39701,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-12-12T12:53:52+00:00"
+            "time": "2020-08-17T09:56:45+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -39829,16 +39869,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v4.4.11",
+            "version": "v4.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "f2b1e1d0c731987f15268816bc9cd998bd50a468"
+                "reference": "cee2f13ddc3fc0cfa2f5b115eaae860cef9c056f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/f2b1e1d0c731987f15268816bc9cd998bd50a468",
-                "reference": "f2b1e1d0c731987f15268816bc9cd998bd50a468",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/cee2f13ddc3fc0cfa2f5b115eaae860cef9c056f",
+                "reference": "cee2f13ddc3fc0cfa2f5b115eaae860cef9c056f",
                 "shasum": ""
             },
             "require": {
@@ -39918,7 +39958,7 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2020-06-30T17:40:09+00:00"
+            "time": "2020-08-21T09:47:32+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -39997,16 +40037,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.4.11",
+            "version": "v4.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c2d2cc66e892322cfcc03f8f12f8340dbd7a3f8a"
+                "reference": "e2a69525b11a33be51cb00b8d6d13a9258a296b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c2d2cc66e892322cfcc03f8f12f8340dbd7a3f8a",
-                "reference": "c2d2cc66e892322cfcc03f8f12f8340dbd7a3f8a",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e2a69525b11a33be51cb00b8d6d13a9258a296b1",
+                "reference": "e2a69525b11a33be51cb00b8d6d13a9258a296b1",
                 "shasum": ""
             },
             "require": {
@@ -40052,7 +40092,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2020-05-20T08:37:50+00:00"
+            "time": "2020-08-26T08:30:46+00:00"
         },
         {
             "name": "twig/twig",
@@ -40120,16 +40160,16 @@
         },
         {
             "name": "voku/anti-xss",
-            "version": "4.1.27",
+            "version": "4.1.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/voku/anti-xss.git",
-                "reference": "462d39510b6a5b8fbcf85814f00239e2ba748814"
+                "reference": "8919a19846d2b100e664d9e3cecfcaba4f57d9b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/anti-xss/zipball/462d39510b6a5b8fbcf85814f00239e2ba748814",
-                "reference": "462d39510b6a5b8fbcf85814f00239e2ba748814",
+                "url": "https://api.github.com/repos/voku/anti-xss/zipball/8919a19846d2b100e664d9e3cecfcaba4f57d9b4",
+                "reference": "8919a19846d2b100e664d9e3cecfcaba4f57d9b4",
                 "shasum": ""
             },
             "require": {
@@ -40173,7 +40213,7 @@
                 "security",
                 "xss"
             ],
-            "time": "2020-08-23T00:24:48+00:00"
+            "time": "2020-08-27T22:43:59+00:00"
         },
         {
             "name": "voku/portable-ascii",
@@ -40298,16 +40338,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.6.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925"
+                "reference": "ab2cb0b3b559010b75981b1bdce728da3ee90ad6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/573381c0a64f155a0d9a23f4b0c797194805b925",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
+                "reference": "ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
                 "shasum": ""
             },
             "require": {
@@ -40315,7 +40355,7 @@
                 "symfony/polyfill-ctype": "^1.8"
             },
             "conflict": {
-                "vimeo/psalm": "<3.6.0"
+                "vimeo/psalm": "<3.9.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.8.36 || ^7.5.13"
@@ -40342,7 +40382,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2019-11-24T13:36:37+00:00"
+            "time": "2020-04-18T12:12:48+00:00"
         },
         {
             "name": "webmozart/glob",
@@ -41068,12 +41108,12 @@
             "version": "1.7.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/facebook/php-webdriver.git",
+                "url": "https://github.com/php-webdriver/php-webdriver-archive.git",
                 "reference": "e43de70f3c7166169d0f14a374505392734160e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/e43de70f3c7166169d0f14a374505392734160e5",
+                "url": "https://api.github.com/repos/php-webdriver/php-webdriver-archive/zipball/e43de70f3c7166169d0f14a374505392734160e5",
                 "reference": "e43de70f3c7166169d0f14a374505392734160e5",
                 "shasum": ""
             },
@@ -41121,6 +41161,7 @@
                 "selenium",
                 "webdriver"
             ],
+            "abandoned": "php-webdriver/webdriver",
             "time": "2019-06-13T08:02:18+00:00"
         },
         {
@@ -43336,6 +43377,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -43892,6 +43934,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
+            "abandoned": true,
             "time": "2017-11-18T17:31:49+00:00"
         },
         {

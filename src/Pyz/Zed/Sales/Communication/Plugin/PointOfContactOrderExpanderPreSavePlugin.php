@@ -35,7 +35,6 @@ class PointOfContactOrderExpanderPreSavePlugin extends AbstractPlugin implements
         QuoteTransfer $quoteTransfer
     ): SpySalesOrderEntityTransfer {
         $pointOfContactTransfer = $quoteTransfer->getPointOfContact();
-        $spySalesOrderEntityTransfer->setPocId($pointOfContactTransfer->getPointOfContactId());
         $spySalesOrderEntityTransfer->setPocDepartment($pointOfContactTransfer->getDepartment());
         $spySalesOrderEntityTransfer->setPocFirstName($pointOfContactTransfer->getFirstName());
         $spySalesOrderEntityTransfer->setPocLastName($pointOfContactTransfer->getLastName());

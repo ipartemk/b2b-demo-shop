@@ -3,7 +3,17 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
 
+    <transfer name="RestCheckoutResponse">
+        <property name="quote" type="Quote"/>
+    </transfer>
+
     <transfer name="RestCheckoutUpdateResponse">
+        <property name="isSuccess" type="bool"/>
+        <property name="errors" type="RestCheckoutError[]" singular="error"/>
+        <property name="quote" type="Quote"/>
+    </transfer>
+
+    <transfer name="RestQuoteDeclineResponse">
         <property name="isSuccess" type="bool"/>
         <property name="errors" type="RestCheckoutError[]" singular="error"/>
         <property name="quote" type="Quote"/>
@@ -11,11 +21,27 @@
 
     <transfer name="RestCheckoutRequestAttributes">
         <property name="pointOfContact" type="RestPointOfContact" restRequestParameter="yes"/>
-        <property name="approverDetails" type="ApproverDetails" restRequestParameter="yes"/>
+        <property name="approverDetails" type="RestApproverDetails" restRequestParameter="yes"/>
+    </transfer>
+
+    <transfer name="RestQuoteDeclineRequestAttributes">
+        <property name="idCart" type="string" restRequestParameter="yes"/>
+        <property name="customer" type="RestCustomer" restRequestParameter="yes"/>
+        <property name="approverDetails" type="RestApproverDetails" restRequestParameter="yes"/>
     </transfer>
 
     <transfer name="RestCustomer">
         <property name="uuidCompanyUser" type="string" restRequestParameter="no"/>
+    </transfer>
+
+    <transfer name="RestCheckoutResponseAttributes">
+        <property name="customer" type="RestCustomer"/>
+        <property name="billingAddress" type="RestAddress"/>
+        <property name="shippingAddress" type="RestAddress"/>
+        <property name="payments" type="RestPayment[]" singular="payment"/>
+        <property name="shipment" type="RestShipment"/>
+        <property name="pointOfContact" type="RestPointOfContact"/>
+        <property name="approverDetails" type="RestApproverDetails"/>
     </transfer>
 
     <transfer name="RestCheckoutUpdateResponseAttributes">
@@ -26,6 +52,12 @@
         <property name="payments" type="RestPayment[]" singular="payment"/>
         <property name="shipment" type="RestShipment"/>
         <property name="pointOfContact" type="RestPointOfContact"/>
+        <property name="approverDetails" type="RestApproverDetails"/>
+    </transfer>
+
+    <transfer name="RestQuoteDeclineResponseAttributes">
+        <property name="customer" type="RestCustomer"/>
+        <property name="idCart" type="string"/>
         <property name="approverDetails" type="RestApproverDetails"/>
     </transfer>
 
@@ -40,12 +72,14 @@
 
     <transfer name="RestApproverDetails">
         <property name="uuidQuoteApproval" type="string"/>
+        <property name="uuidQuote" type="string"/>
         <property name="status" type="string"/>
         <property name="approverId" type="string"/>
         <property name="firstName" type="string"/>
         <property name="lastName" type="string"/>
         <property name="comment" type="string"/>
         <property name="dueDate" type="string"/>
+        <property name="companyUserId" type="string"/>
     </transfer>
 
 </transfers>

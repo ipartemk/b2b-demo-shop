@@ -7,6 +7,7 @@
 
 namespace Pyz\Glue\CheckoutRestApi;
 
+use Pyz\Glue\CheckoutRestApi\Processor\Checkout\CheckoutResponseExtendMapper;
 use Spryker\Glue\CheckoutRestApi\CheckoutRestApiDependencyProvider as SprykerCheckoutRestApiDependencyProvider;
 use Spryker\Glue\CheckoutRestApi\Plugin\SinglePaymentCheckoutRequestAttributesValidatorPlugin;
 
@@ -19,6 +20,16 @@ class CheckoutRestApiDependencyProvider extends SprykerCheckoutRestApiDependency
     {
         return [
             new SinglePaymentCheckoutRequestAttributesValidatorPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Glue\CheckoutRestApiExtension\Dependency\Plugin\CheckoutResponseMapperPluginInterface[]
+     */
+    protected function getCheckoutResponseMapperPlugins(): array
+    {
+        return [
+            new CheckoutResponseExtendMapper(),
         ];
     }
 }
