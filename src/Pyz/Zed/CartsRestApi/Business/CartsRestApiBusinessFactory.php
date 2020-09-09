@@ -10,6 +10,8 @@ namespace Pyz\Zed\CartsRestApi\Business;
 use Pyz\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionChecker;
 use Spryker\Zed\CartsRestApi\Business\CartsRestApiBusinessFactory as SprykerCartsRestApiBusinessFactory;
 use Spryker\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionCheckerInterface;
+use Pyz\Zed\CartsRestApi\Business\Quote\QuoteReader;
+use Spryker\Zed\CartsRestApi\Business\Quote\QuoteReaderInterface;
 
 /**
  * @method \Spryker\Zed\CartsRestApi\Persistence\CartsRestApiEntityManagerInterface getEntityManager()
@@ -17,6 +19,20 @@ use Spryker\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionCheckerIn
  */
 class CartsRestApiBusinessFactory extends SprykerCartsRestApiBusinessFactory
 {
+    /**
+     * @return \Spryker\Zed\CartsRestApi\Business\Quote\QuoteReaderInterface
+     */
+    public function createQuoteReader(): QuoteReaderInterface
+    {
+        return new QuoteReader(
+            $this->getQuoteFacade(),
+            $this->getStoreFacade(),
+            $this->createQuotePermissionChecker(),
+            $this->getQuoteCollectionExpanderPlugins(),
+            $this->getQuoteExpanderPlugins()
+        );
+    }
+
     /**
      * @return \Pyz\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionCheckerInterface
      */

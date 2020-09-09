@@ -7,6 +7,7 @@
 
 namespace Pyz\Glue\GlueApplication;
 
+use Pyz\Glue\CartsRestApi\Plugin\ResourceRoute\CartsApprovalResourceRoutePlugin;
 use Pyz\Glue\CheckoutRestApi\Plugin\GlueApplication\CheckoutUpdateResourcePlugin;
 use Pyz\Glue\CheckoutRestApi\Plugin\GlueApplication\QuoteDeclineResourcePlugin;
 use Pyz\Glue\NavigationsRestApi\NavigationsRestApiConfig;
@@ -155,6 +156,7 @@ class GlueApplicationDependencyProvider extends SprykerGlueApplicationDependency
             new CartUpSellingProductsResourceRoutePlugin(),
             new GuestCartUpSellingProductsResourceRoutePlugin(),
             new CartsResourceRoutePlugin(),
+            new CartsApprovalResourceRoutePlugin(),
             new AbstractProductImageSetsRoutePlugin(),
             new ConcreteProductImageSetsRoutePlugin(),
             new CartItemsResourceRoutePlugin(),
