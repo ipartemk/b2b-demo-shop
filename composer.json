@@ -96,7 +96,7 @@
     "spryker/cart-currency-connector": "^1.1.4",
     "spryker/cart-note-product-bundle-connector": "^1.0.0",
     "spryker/cart-permission-groups-rest-api": "^1.2.0",
-    "spryker/carts-rest-api": "^5.9.0",
+    "spryker/carts-rest-api": "^5.12.2",
     "spryker/carts-rest-api-extension": "^1.5.0",
     "spryker/catalog-price-product-connector": "^1.2.3",
     "spryker/catalog-search-products-resource-relationship": "^1.2.0",
