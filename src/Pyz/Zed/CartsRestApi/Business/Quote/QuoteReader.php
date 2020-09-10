@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\CartsRestApi\Business\Quote;
 
+use Pyz\Zed\Quote\Business\QuoteFacadeInterface;
 use Spryker\Zed\CartsRestApi\Business\Quote\QuoteReader as SprykerQuoteReader;
 use Generated\Shared\Transfer\QuoteCollectionTransfer;
 use Generated\Shared\Transfer\QuoteCriteriaFilterTransfer;
@@ -18,8 +19,34 @@ use Spryker\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionCheckerIn
 use Spryker\Zed\CartsRestApi\Dependency\Facade\CartsRestApiToQuoteFacadeInterface;
 use Spryker\Zed\CartsRestApi\Dependency\Facade\CartsRestApiToStoreFacadeInterface;
 
-class QuoteReader extends SprykerQuoteReader
+class QuoteReader extends SprykerQuoteReader implements QuoteReaderInterface
 {
+    /**
+     * @var \Pyz\Zed\Quote\Business\QuoteFacadeInterface
+     */
+    protected $quoteFacadeBase;
+
+    /**
+     * @param \Spryker\Zed\CartsRestApi\Dependency\Facade\CartsRestApiToQuoteFacadeInterface $quoteFacade
+     * @param \Spryker\Zed\CartsRestApi\Dependency\Facade\CartsRestApiToStoreFacadeInterface $storeFacade
+     * @param \Spryker\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionCheckerInterface $quotePermissionChecker
+     * @param \Spryker\Zed\CartsRestApiExtension\Dependency\Plugin\QuoteCollectionExpanderPluginInterface[] $quoteCollectionExpanderPlugins
+     * @param \Spryker\Zed\CartsRestApiExtension\Dependency\Plugin\QuoteExpanderPluginInterface[] $quoteExpanderPlugins
+     * @param \Pyz\Zed\Quote\Business\QuoteFacadeInterface $quoteFacadeBase
+     */
+    public function __construct(
+        CartsRestApiToQuoteFacadeInterface $quoteFacade,
+        CartsRestApiToStoreFacadeInterface $storeFacade,
+        QuotePermissionCheckerInterface $quotePermissionChecker,
+        array $quoteCollectionExpanderPlugins,
+        array $quoteExpanderPlugins,
+        QuoteFacadeInterface $quoteFacadeBase
+    ) {
+        parent::__construct($quoteFacade, $storeFacade, $quotePermissionChecker, $quoteCollectionExpanderPlugins, $quoteExpanderPlugins);
+
+        $this->quoteFacadeBase = $quoteFacadeBase;
+    }
+
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -27,7 +54,6 @@ class QuoteReader extends SprykerQuoteReader
      */
     public function findQuoteByUuid(QuoteTransfer $quoteTransfer): QuoteResponseTransfer
     {
-        $tt = 1;
         $quoteTransfer->requireUuid();
         $quoteTransfer->requireCustomerReference();
 
@@ -37,7 +63,7 @@ class QuoteReader extends SprykerQuoteReader
             return $quoteResponseTransfer
                 ->addError((new QuoteErrorTransfer())->setErrorIdentifier(CartsRestApiSharedConfig::ERROR_IDENTIFIER_CART_NOT_FOUND));
         }
-        //@todo @artem
+
         $customerFromOrigQuote = clone $quoteResponseTransfer->getQuoteTransfer()->getCustomer();
         $quoteResponseTransfer->getQuoteTransfer()->setCustomer($quoteTransfer->getCustomer());
 
@@ -52,5 +78,23 @@ class QuoteReader extends SprykerQuoteReader
         $expandedQuoteTransfer = $this->executeQuoteExpanderPlugins($quoteResponseTransfer->getQuoteTransfer());
 
         return $quoteResponseTransfer->setQuoteTransfer($expandedQuoteTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer
+     *
+     * @return \Generated\Shared\Transfer\QuoteCollectionTransfer
+     */
+    public function getQuoteForApprovalCollection(QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer): QuoteCollectionTransfer
+    {
+        $storeTransfer = $this->storeFacade->getCurrentStore();
+        $quoteCriteriaFilterTransfer->setIdStore($storeTransfer->getIdStore());
+
+        $quoteCollectionTransfer = $this->quoteFacadeBase->getQuoteForApprovalCollection($quoteCriteriaFilterTransfer);
+
+        return $this->executeQuoteCollectionExpanderPlugins(
+            $quoteCriteriaFilterTransfer,
+            $quoteCollectionTransfer
+        );
     }
 }

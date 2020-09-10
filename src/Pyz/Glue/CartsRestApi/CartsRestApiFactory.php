@@ -18,7 +18,7 @@ use Spryker\Glue\CartsRestApi\Processor\RestResponseBuilder\CartRestResponseBuil
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  *
- * @method \Spryker\Client\CartsRestApi\CartsRestApiClientInterface getClient()
+ * @method \Pyz\Client\CartsRestApi\CartsRestApiClientInterface getClient()
  * @method \Pyz\Glue\CartsRestApi\CartsRestApiConfig getConfig()
  */
 class CartsRestApiFactory extends SprykerCartsRestApiFactory

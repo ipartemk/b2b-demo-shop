@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteCollectionTransfer;
 use Generated\Shared\Transfer\QuoteCriteriaFilterTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Client\CartsRestApi\CartsRestApiClientInterface;
+use Pyz\Client\CartsRestApi\CartsRestApiClientInterface;
 use Pyz\Glue\CartsRestApi\Processor\RestResponseBuilder\CartRestResponseBuilderInterface;
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
@@ -24,7 +24,7 @@ class CartApprovalReader implements CartApprovalReaderInterface
     protected $cartRestResponseBuilder;
 
     /**
-     * @var \Spryker\Client\CartsRestApi\CartsRestApiClientInterface
+     * @var \Pyz\Client\CartsRestApi\CartsRestApiClientInterface
      */
     protected $cartsRestApiClient;
 
@@ -35,7 +35,7 @@ class CartApprovalReader implements CartApprovalReaderInterface
 
     /**
      * @param \Pyz\Glue\CartsRestApi\Processor\RestResponseBuilder\CartRestResponseBuilderInterface $cartRestResponseBuilder
-     * @param \Spryker\Client\CartsRestApi\CartsRestApiClientInterface $cartsRestApiClient
+     * @param \Pyz\Client\CartsRestApi\CartsRestApiClientInterface $cartsRestApiClient
      * @param \Spryker\Glue\CartsRestApiExtension\Dependency\Plugin\CustomerExpanderPluginInterface[] $customerExpanderPlugins
      */
     public function __construct(
@@ -84,7 +84,7 @@ class CartApprovalReader implements CartApprovalReaderInterface
      */
     public function getAllQuoteApprovals(RestRequestInterface $restRequest): RestResponseInterface
     {
-        $quoteCollectionTransfer = $this->getCustomerQuotes($restRequest);
+        $quoteCollectionTransfer = $this->getQuotesForApproval($restRequest);
 
         if (count($quoteCollectionTransfer->getQuotes()) === 0) {
             return $this->cartRestResponseBuilder->createRestResponse();
@@ -98,12 +98,11 @@ class CartApprovalReader implements CartApprovalReaderInterface
      *
      * @return \Generated\Shared\Transfer\QuoteCollectionTransfer
      */
-    protected function getCustomerQuotes(RestRequestInterface $restRequest): QuoteCollectionTransfer
+    protected function getQuotesForApproval(RestRequestInterface $restRequest): QuoteCollectionTransfer
     {
-        $quoteCollectionTransfer = $this->cartsRestApiClient->getQuoteCollection(
+        $quoteCollectionTransfer = $this->cartsRestApiClient->getQuoteForApprovalCollection(
             (new QuoteCriteriaFilterTransfer())
-                ->setCustomerReference($restRequest->getRestUser()->getNaturalIdentifier())
-                ->setIdCompanyUser($restRequest->getRestUser()->getIdCompanyUser())
+                ->setQuoteApprovalIdCompanyUser($restRequest->getRestUser()->getIdCompanyUser())
         );
 
         return $quoteCollectionTransfer;
