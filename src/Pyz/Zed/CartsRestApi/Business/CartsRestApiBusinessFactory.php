@@ -8,11 +8,11 @@
 namespace Pyz\Zed\CartsRestApi\Business;
 
 use Pyz\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionChecker;
+use Pyz\Zed\CartsRestApi\Business\Quote\QuoteReader;
 use Pyz\Zed\CartsRestApi\CartsRestApiDependencyProvider;
 use Pyz\Zed\Quote\Business\QuoteFacadeInterface;
 use Spryker\Zed\CartsRestApi\Business\CartsRestApiBusinessFactory as SprykerCartsRestApiBusinessFactory;
 use Spryker\Zed\CartsRestApi\Business\PermissionChecker\QuotePermissionCheckerInterface;
-use Pyz\Zed\CartsRestApi\Business\Quote\QuoteReader;
 use Spryker\Zed\CartsRestApi\Business\Quote\QuoteReaderInterface;
 
 /**

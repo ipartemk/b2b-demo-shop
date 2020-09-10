@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Glue\CartsRestApi;
 
 use Pyz\Glue\CartsRestApi\Processor\Cart\CartApprovalReader;
 use Pyz\Glue\CartsRestApi\Processor\Cart\CartApprovalReaderInterface;
-use Spryker\Glue\CartsRestApi\CartsRestApiFactory as SprykerCartsRestApiFactory;
-use Pyz\Glue\CartsRestApi\Processor\RestResponseBuilder\CartRestResponseBuilder;
 use Pyz\Glue\CartsRestApi\Processor\Mapper\CartMapper;
+use Pyz\Glue\CartsRestApi\Processor\RestResponseBuilder\CartRestResponseBuilder;
+use Spryker\Glue\CartsRestApi\CartsRestApiFactory as SprykerCartsRestApiFactory;
 use Spryker\Glue\CartsRestApi\Processor\Mapper\CartMapperInterface;
 use Spryker\Glue\CartsRestApi\Processor\RestResponseBuilder\CartRestResponseBuilderInterface;
 

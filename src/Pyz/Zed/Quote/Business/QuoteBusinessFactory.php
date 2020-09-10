@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\Quote\Business;
 
-use Pyz\Zed\Quote\Business\Model\QuoteWriter;
 use Pyz\Zed\Quote\Business\Model\QuoteReader;
+use Pyz\Zed\Quote\Business\Model\QuoteWriter;
 use Spryker\Zed\Quote\Business\Model\QuoteReaderInterface;
 use Spryker\Zed\Quote\Business\Model\QuoteWriterInterface;
 use Spryker\Zed\Quote\Business\QuoteBusinessFactory as SprykerQuoteBusinessFactory;

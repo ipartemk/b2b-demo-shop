@@ -1,18 +1,15 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Quote\Persistence;
 
-use Spryker\Zed\Quote\Persistence\QuoteRepositoryInterface as SprykerQuoteRepositoryInterface;
-use DateTime;
 use Generated\Shared\Transfer\QuoteCollectionTransfer;
 use Generated\Shared\Transfer\QuoteCriteriaFilterTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
-use Generated\Shared\Transfer\SpyQuoteEntityTransfer;
+use Spryker\Zed\Quote\Persistence\QuoteRepositoryInterface as SprykerQuoteRepositoryInterface;
 
 interface QuoteRepositoryInterface extends SprykerQuoteRepositoryInterface
 {
